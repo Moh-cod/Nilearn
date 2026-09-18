@@ -30,8 +30,8 @@
         <a href="/resources/{{ resource["id"] }}">
             <h2> {{ resource["title"] }}</h2>
         </a>
-        <p> المادة: {{ subject_name.get(resource["subject"], resource["subject"]) }}</p>
-        <p> النوع: {{ resource_type_name.get("resource_type"], resource["resource_type"]) }}</p>
+        <p> المادة: {{ subject_names.get(resource["subject"], resource["subject"]) }}</p>
+        <p> النوع: {{ resource_type_names.get(resource["resource_type"], resource["resource_type"]) }}</p>
         <p> السنة: {{ resource["year"] }}</p>
         <p> الوصف: {{ resource["description"] }}</p>
 
