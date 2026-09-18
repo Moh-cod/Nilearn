@@ -86,7 +86,7 @@ def resources():
     connection.close()
 
     return render_template("resources.html",
-                           resources=resources, subjects=subjects, subject_names=subject_names, resource_type_name)
+                           resources=resources, subjects=subjects, subject_names=subject_names, resource_type_name=resource_type_names)
 
 
 
