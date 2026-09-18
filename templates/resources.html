@@ -19,7 +19,7 @@
 
             {% for subject in subjects %}
                 <option value="{{ subject['subject']}}">
-                    {{ subject['subject'] }}
+                    {{ subject_names.get(subject['subject'], subject['subject']) }}
                     </option>
             {% endfor %}
         </select>
