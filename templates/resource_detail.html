@@ -9,8 +9,8 @@
     <body>
         <h1> {{ resource["title"]}} </h1>
 
-        <p> المادة: {{ resource["subject"] }} </p>
-        <p> النوع: {{ resource["type"]}} </p>
+        <p> المادة: {{ subject_names.get(resource["subject"], resource["subject"]) }} </p>
+        <p> النوع: {{ resource_type_names.get(resource["resource_type"], resource["resource_type"] )}} </p>
         <p> السنة: {{ resource["year"] }} </p>
         <p> حجم الملف: {{ file_size }}  </p>
         <p> الوصف: {{ resource["description"] }} </p>
