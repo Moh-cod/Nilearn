@@ -5,6 +5,22 @@ from flask import Flask, render_template, send_from_directory, request, redirect
 
 app = Flask(__name__)
 
+subject_names = {
+    "Physics": "الفيزياء",
+    "English": "اللغة الإنجليزية",
+    "History": "التاريخ",
+    "Geography": "الجغرافيا",
+    "Chemistry": "الكيمياء",
+    "Arabic": "اللغة العربية",
+    "Islamic Studies": "دراسات اسلامية",
+    "Islamic Education": "تربية اسلامية",
+    "Engineering Sciences": "علوم هندسية",
+    "Biology": "احياء",
+    "Computer Science": "حاسوب",
+    "Additional Mathematics": "رياضيات متخصصة",
+    "Basic Mathematics": "رياضيات الاساسية",
+}
+
 def get_db():
     connection = sqlite3.connect("nilearn.db")
     connection.row_factory = sqlite3.Row
