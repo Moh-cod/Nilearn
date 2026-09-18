@@ -1,3 +1,4 @@
+
 import sqlite3
 import os
 from flask import Flask, render_template, send_from_directory, request, redirect
@@ -86,7 +87,7 @@ def resources():
     connection.close()
 
     return render_template("resources.html",
-                           resources=resources, subjects=subjects, subject_names=subject_names, resource_type_name=resource_type_names)
+                           resources=resources, subjects=subjects, subject_names=subject_names, resource_type_names=resource_type_names)
 
 
 
@@ -108,7 +109,8 @@ def resource_detail(resource_id):
     connection.close()
 
     return render_template("resource_detail.html",
-                            resource=resource, file_size=file_size)
+                            resource=resource, file_size=file_size,
+                            subject_names=subject_names, resource_type_names=resource_type_names)
 
 
 
