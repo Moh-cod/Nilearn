@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>مصادر Nilearn</title>
+    </head>
+
+    <body>
+        <h1>مكتبة نايليرن</h1>
+        <form method="GET" action="/resources">
+            <input type="text" name="search" placeholder="بحث في المصادر...">
+            <button type="submit">بحث</button>
+
+
+        <select name="subject">
+            <option value ="">جميع المواد</option>
+
+            {% for subject in subjects %}
+                <option value="{{ subject['subject']}}">
+                    {{ subject['subject'] }}
+                    </option>
+            {% endfor %}
+        </select>
+    </form>
+
+        {% for resource in resources %}
+    <div>
+        <a href="/resources/{{ resource["id"] }}">
+            <h2> {{ resource["title"] }}</h2>
+        </a>
+        <p> Subject: {{ resource["subject"] }}</p>
+        <p> Type: {{ resource["type"] }}</p>
+        <p> Year: {{ resource["year"] }}</p>
+        <p> Description: {{ resource["description"] }}</p>
+
+    </div>
+{% endfor %}
+</body>
+</html>
+

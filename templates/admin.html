@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}} "
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilearn Admin</title>
+</head>
+
+<body>
+    <h1>Nilearn Admin</h1>
+
+<form method="POST" action="/admin" enctype="multipart/form-data">
+    <label>Title</label>
+    <input type="text" name="title">
+
+
+    <label>Subject</label>
+    <input type="text" name="subject">
+
+    <label>Resource Type</label>
+    <input type="text" name="resource_type">
+
+    <label>Year</label>
+    <input type="text" name="year">
+
+    <label>Description</label>
+    <textarea name="description"></textarea>
+
+    <label>PDF</label>
+    <input type="file" name="pdf">
+
+    <button>Upload Resource</button>
+</form>
+
+
+</body>
+</html>
