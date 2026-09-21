@@ -6,6 +6,8 @@ from flask import Flask, render_template, send_from_directory, request, redirect
 
 app = Flask(__name__)
 
+os.makedirs("uploads", exist_ok=True)
+
 resource_type_names = {
     "Past Paper": "امتحان سابق",
     "Book": "كتاب",
