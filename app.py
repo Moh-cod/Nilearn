@@ -154,3 +154,19 @@ def admin():
         return redirect("/resources")
 
     return render_template("admin.html")
+
+
+@app.route("/reset-library")
+def reset_library():
+    connection = sqlite3.connect("nilearn.db")
+
+    connection.execute("DELETE FROM resources")
+    connection.commit()
+    connection.close()
+
+    for filename in os.listdir("uploads"):
+        file_path = os.path.join("uploads", filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+
+    return "Nilearn library has been reset."
