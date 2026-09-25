@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS resources (
     resource_type TEXT NOT NULL,
     year INTEGER,
     description TEXT,
-    file_path TEXT
+    file_path TEXT,
+    file_size INTEGER
     )
 """)
 

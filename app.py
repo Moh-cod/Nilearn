@@ -6,7 +6,6 @@ from flask import Flask, render_template, send_from_directory, request, redirect
 
 app = Flask(__name__)
 
-os.makedirs("uploads", exist_ok=True)
 
 resource_type_names = {
     "Past Paper": "امتحان سابق",
@@ -119,8 +118,7 @@ def resource_detail(resource_id):
 
 @app.route("/download/<filename>")
 def download(filename):
-    return send_from_directory ("uploads", filename)
-
+   return send_from_directory("uploads", filename)
 
 
 
@@ -147,7 +145,7 @@ def admin():
             (title, subject, resource_type, year, description, file_path, file_size)
             VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
-            (title, subject, resource_type, year, description, pdf.filename, file_size)
+            (title, subject, resource_type, year, description, file_path, file_size)
         )
 
         connection.commit()
@@ -157,19 +155,3 @@ def admin():
 
     return render_template("admin.html")
 
-
-@app.route("/reset-library")
-def reset_library():
-    connection = sqlite3.connect("nilearn.db")
-
-    connection.execute("DELETE FROM resources")
-    connection.commit()
-    connection.close()
-
-    if os.path.exists("uploads"):
-        for filename in os.listdir("uploads"):
-            file_path = os.path.join("uploads", filename)
-            if os.path.isfile(file_path):
-                os.remove(file_path)
-
-    return "Nilearn library has been reset."

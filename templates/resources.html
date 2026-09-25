@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TYLRLJCQSE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TYLRLJCQSE');
-</script>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +10,7 @@
     <body>
         <h1>مكتبة نايليرن</h1>
         <form method="GET" action="/resources">
-            <input type="text" name="search" placeholder="بحث في المصادر...">
+            <input type="text" name="search" placeholder="بحث في المكتبة...">
             <button type="submit">بحث</button>
 
 
