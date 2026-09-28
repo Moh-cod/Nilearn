@@ -118,7 +118,7 @@ def resource_detail(resource_id):
 
 @app.route("/download/<filename>")
 def download(filename):
-   return send_from_directory("uploads", filename)
+   return send_from_directory("resources", filename)
 
 
 
@@ -134,10 +134,12 @@ def admin():
         description = request.form["description"]
         pdf = request.files["pdf"]
 
-        file_path = "uploads/" + pdf.filename
-        pdf.save(file_path)
+        file_path = pdf.filename
+        full_path = "resources/" + pdf.filename
 
-        file_size = os.path.getsize(file_path)
+        pdf.save(full_path)
+
+        file_size = os.path.getsize(full_path)
 
         connection.execute(
             """
